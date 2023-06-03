@@ -1,0 +1,110 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #79B4B7;
+}
+
+.logo {
+    cursor: pointer;
+    text-align: start;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: end;
+}
+
+.hamburger button {
+    padding: 6px;
+    width: 5rem;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    padding: 0 15px;
+    text-align: end;
+}
+
+.menuOff {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    padding: 0 15px;
+    text-align: end;
+}
+
+
+.menu span,
+.menu a,
+.menuOff span,
+.menuOff a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+
+@media(max-width: 767.98px) {
+    .nav {
+        align-items: start;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menuOff {
+        flex-direction: column;
+        gap: 5px;
+        display: flex;
+    }
+}
+
+
+@media(min-width: 768px) and (max-width: 991.98px) {
+    .nav {
+        align-items: start;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menuOff {
+        flex-direction: column;
+        gap: 5px;
+        display: flex;
+    }
+}
+
+@media (min-width: 992px) {
+    .nav {
+        align-items: center;
+    }
+
+    .hamburger button {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: flex-end;
+    }
+
+    .menuOff {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: flex-end;
+    }
+}
