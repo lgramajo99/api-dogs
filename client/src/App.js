@@ -11,7 +11,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path='/inicio' element={<Inicio />} />
-        <Route path='/prueba' element={<Detalles />} />
+        <Route path='/detalle/:idRaza' element={<Detalles />} />
       </Routes>
       <Footer />
     </div>
