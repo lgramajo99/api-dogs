@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/inicio' element={<Inicio />} />
         <Route path='/detalle/:idRaza' element={<Detalles />} />
+        {/* <Route path='/' element={<SearchBar />} /> */}
       </Routes>
       <Footer />
     </div>
