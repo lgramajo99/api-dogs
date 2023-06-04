@@ -24,7 +24,7 @@ export const fetchDogs = () => {
 
         try {
             const response = await axios.get('http://localhost:3001/dogs');
-            const dogs = response.data;
+            const dogs = response.data.slice(0, 15);
 
             dispatch(fetchDogsSuccess(dogs))
         } catch (error) {

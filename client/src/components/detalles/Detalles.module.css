@@ -1,0 +1,29 @@
+.detalles {
+    width: 90%;
+    margin: auto;
+}
+
+.detalles img {
+    position: relative;
+    width: 50%;
+    height: auto;
+
+}
+
+.detalles p,
+.detalles li {
+    font-weight: 500;
+}
+
+.detalles p span {
+    font-weight: bolder;
+}
+
+.detalles ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
