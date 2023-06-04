@@ -12,7 +12,7 @@ const initialState = {
 
 
 function dogsReducer(state = initialState, action) {
-    switch (action.payload) {
+    switch (action.type) {
         case FETCH_DOGS_FAILURE:
             return {
                 ...state,

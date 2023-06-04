@@ -1,19 +1,24 @@
 import styles from './Card.module.css';
+import { useNavigate } from 'react-router-dom'
 
-function FirstCard() {
+function FirstCard({ id, nombre, imagen, peso }) {
+    const navigate = useNavigate()
+
+    const goToDetail = () => { navigate(`/detalle/${id}`) }
+
     return (
-        <section className={styles.card}>
-            <div class={styles.front}>
-                <img src="https://cdn2.thedogapi.com/images/B1ADQg94X.jpg" alt="Nombre de la raza" />
+        <section className={styles.card} onClick={goToDetail}>
+            <div className={styles.front}>
+                <img src={imagen} alt={nombre} />
             </div>
-            <div class={styles.back}>
-                <h2>Nombre del dog</h2>
+            <div className={styles.back}>
+                <h2>{nombre}</h2>
                 <ul>
                     <li>alegre</li>
                     <li>cariñoso</li>
                     <li>jugeueton</li>
                 </ul>
-                <p>peso aprox: 115kg </p>
+                <p>peso aprox: {peso} </p>
             </div>
         </section>
     )

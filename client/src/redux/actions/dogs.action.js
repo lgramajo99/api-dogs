@@ -3,6 +3,8 @@ import {
     FETCH_DOGS_FAILURE,
     FETCH_DOGS_SUCCESS
 } from "../actions-types/actions-types";
+import axios from 'axios'
+
 
 export const fetchDogsRequest = () => {
     return { type: FETCH_DOGS_REQUEST }
