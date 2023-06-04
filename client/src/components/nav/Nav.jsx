@@ -1,4 +1,4 @@
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { switchHamburger } from '../../redux/actions/otros.action.js';
 import styles from './Nav.module.css'
@@ -7,15 +7,13 @@ import styles from './Nav.module.css'
 function Nav() {
     const { isOpenHamburger } = useSelector(state => state.otrosReducer);
     const dispatch = useDispatch();
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const handlerHamburger = () => {
         dispatch(switchHamburger(isOpenHamburger))
     }
 
-    const goHome = () => {
-        history.push('/inicio'); // Utiliza history.push para navegar a '/inicio'
-    }
+    const goHome = () => { navigate('/inicio') }
 
     return (<nav className={styles.nav}>
 

@@ -1,0 +1,25 @@
+.inicio {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    gap: 20px;
+}
+
+@media(max-width: 767.98px) {
+    .inicio {
+        grid-template-columns: 12fr;
+    }
+
+    .inicio> :first-child {
+        display: none;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 991.98px) {
+    .inicio {
+        grid-template-columns: 12fr;
+    }
+
+    .inicio> :first-child {
+        display: none;
+    }
+}
