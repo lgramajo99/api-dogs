@@ -3,10 +3,12 @@
     display: flex;
     justify-content: center;
     column-gap: 5px;
+    align-items: center;
 }
 
 .paginado button {
     font-size: larger;
     padding: 8px;
     border-radius: 5px;
+    cursor: pointer;
 }

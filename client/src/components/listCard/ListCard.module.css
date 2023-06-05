@@ -1,15 +1,16 @@
 .listcard {
     display: grid;
     gap: 10px;
-    align-items: flex-start;
-    /* align-items: stretch; */
     padding: 10px;
-    justify-items: center;
+    border: 1px red solid;
 }
 
 .listcard> :last-child,
 .listcard> :first-child {
     grid-column: 1 / -1;
+    padding: 10px;
+    margin: 0;
+
 }
 
 @media(max-width: 767.98px) {
@@ -30,6 +31,10 @@
 @media (min-width: 992px) {
     .listcard {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .listcard> :not(:first-child):not(:last-child) {
         grid-auto-rows: 16rem;
     }
+
 }
