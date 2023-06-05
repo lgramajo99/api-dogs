@@ -17,8 +17,17 @@ const dogsNameCtrl = async (req, res) => {
         const dogsDB = await Dog.findAll(responseDB)
 
         const responseApi = await axios.get('https://api.thedogapi.com/v1/breeds');
-        const dogsApi = responseApi.data.filter(el => el.name.toLowerCase().includes(nombre.toLowerCase()))
+        const resp = responseApi.data.filter(el => el.name.toLowerCase().includes(nombre.toLowerCase()))
 
+        const dogsApi = resp.map(el => ({
+            id: el.id,
+            nombre: el?.name,
+            imagen: el?.image?.url,
+            peso: el?.weight?.imperial,
+            altura: el?.height?.imperial,
+            añosDeVida: el?.life_span,
+            temperamentos: el?.temperament
+        }));
 
         if (!dogsDB.length && !dogsApi.length) {
             throw new Error(`La raza con el nombre "${nombre}" no fue encontrado`);

@@ -1,34 +1,34 @@
 import axios from 'axios';
 import {
-    FETCH_DOGS_FAILURE,
-    FETCH_DOGS_REQUEST,
-    FETCH_DOGS_SUCCESS
+    FETCH_DOGS_NAME_FAILURE,
+    FETCH_DOGS_NAME_REQUEST,
+    FETCH_DOGS_NAME_SUCCESS
 } from '../actions-types/actions-types'
 
 export function fetchDogNameFailure(error) {
-    return { type: FETCH_DOGS_FAILURE, payload: error }
+    return { type: FETCH_DOGS_NAME_FAILURE, payload: error }
 }
 
 export function fetchDogNameRequest() {
-    return { type: FETCH_DOGS_REQUEST }
+    return { type: FETCH_DOGS_NAME_REQUEST }
 }
 
-export function fetchDogNameSuccess(dogs) {
-    return { type: FETCH_DOGS_SUCCESS, payload: dogs }
+export function fetchDogNameSuccess(dogsName) {
+    return { type: FETCH_DOGS_NAME_SUCCESS, payload: dogsName }
 }
 
-export function fetchDogsName() {
+export function fetchDogsName(name) {
     return async (dispatch) => {
         dispatch(fetchDogNameRequest())
         try {
-            const response = await axios.get('http://localhost:3001/dogs/name',
-                { params: { name: name } });
-            
-                const dogs = response.data;
+            const response = await axios.get('http://localhost:3001/dogs/name', { params: { name: name } });
+            const dogsName = response.data;
+            console.log(response.data)
 
-            dispatch(fetchDogNameSuccess(dogs))
+            dispatch(fetchDogNameSuccess(dogsName))
         } catch (error) {
             dispatch(fetchDogNameFailure(error))
         }
     }
 }
+

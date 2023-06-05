@@ -1,33 +1,33 @@
 import {
-    FETCH_DOGS_FAILURE,
-    FETCH_DOGS_REQUEST,
-    FETCH_DOGS_SUCCESS
+    FETCH_DOGS_NAME_FAILURE,
+    FETCH_DOGS_NAME_REQUEST,
+    FETCH_DOGS_NAME_SUCCESS
 } from '../actions-types/actions-types'
 
 const initialState = {
-    dogs: [],
+    dogsName: [],
     loading: false,
     error: null
 }
 
 function dogsNameReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_DOGS_FAILURE:
+        case FETCH_DOGS_NAME_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.payload
             };
-        case FETCH_DOGS_REQUEST:
+        case FETCH_DOGS_NAME_REQUEST:
             return {
                 ...state,
                 loading: true,
             }
-        case FETCH_DOGS_SUCCESS:
+        case FETCH_DOGS_NAME_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                dogs: action.payliad
+                dogsName: action.payload
             }
 
         default:
