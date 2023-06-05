@@ -4,6 +4,8 @@ import {
     FETCH_DOGS_SUCCESS,
     CURRENT_PAGE,
     TOTAL_PAGES,
+    ORDER,
+    FILTER,
 } from "../actions-types/actions-types";
 import axios from 'axios'
 
@@ -54,3 +56,17 @@ export const fetchDogs = () => {
         }
     };
 };
+
+export function orderBy(ordenBy) {
+    return {
+        type: ORDER,
+        payload: ordenBy,
+    }
+}
+
+export function filterBy(filtroBy) {
+    return {
+        type: FILTER,
+        payload: filtroBy,
+    }
+}

@@ -1,20 +1,20 @@
 import axios from 'axios';
 import {
-    FETCH_DOGS_FAILURE,
-    FETCH_DOGS_REQUEST,
-    FETCH_DOGS_SUCCESS
+    FETCH_DOGS_ID_FAILURE,
+    FETCH_DOGS_ID_REQUEST,
+    FETCH_DOGS_ID_SUCCESS
 } from '../actions-types/actions-types'
 
 export function fetchDogIdFailure(error) {
-    return { type: FETCH_DOGS_FAILURE, payload: error }
+    return { type: FETCH_DOGS_ID_FAILURE, payload: error }
 }
 
 export function fetchDogIdRequest() {
-    return { type: FETCH_DOGS_REQUEST }
+    return { type: FETCH_DOGS_ID_REQUEST }
 }
 
 export function fetchDogIdSuccess(dog) {
-    return { type: FETCH_DOGS_SUCCESS, payload: dog }
+    return { type: FETCH_DOGS_ID_SUCCESS, payload: dog }
 }
 
 export function fetchDogId(idRaza) {

@@ -1,7 +1,7 @@
 import {
-    FETCH_DOGS_FAILURE,
-    FETCH_DOGS_REQUEST,
-    FETCH_DOGS_SUCCESS
+    FETCH_DOGS_ID_FAILURE,
+    FETCH_DOGS_ID_REQUEST,
+    FETCH_DOGS_ID_SUCCESS,
 } from '../actions-types/actions-types'
 
 const initialState = {
@@ -12,18 +12,18 @@ const initialState = {
 
 function dogIdReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_DOGS_REQUEST:
+        case FETCH_DOGS_ID_REQUEST:
             return {
                 ...state,
                 loading: true,
             }
-        case FETCH_DOGS_FAILURE:
+        case FETCH_DOGS_ID_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.payload
             }
-        case FETCH_DOGS_SUCCESS:
+        case FETCH_DOGS_ID_SUCCESS:
             return {
                 ...state,
                 loading: false,

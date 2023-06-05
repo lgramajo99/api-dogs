@@ -16,8 +16,7 @@ function Detalles() {
 
     if (loading) { return (<h1>Cargando...</h1>) }
     if (error) { return (<h1>Error:</h1>) }
-    console.log(dog)
-
+    // console.log(dog)
 
     return (
         <section className={styles.detalles}>
@@ -29,9 +28,9 @@ function Detalles() {
             <p>Peso aprox.: <span>{peso}</span></p>
 
             <p>Esperanza de vida: <span>{añosDeVida}</span></p>
-            
+
             <h4>Temperamentos</h4>
-            
+
             <ul>
                 <li>temperametos #1</li>
                 <li>temperametos #2</li>

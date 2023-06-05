@@ -4,7 +4,8 @@ import {
     FETCH_DOGS_SUCCESS,
     CURRENT_PAGE,
     TOTAL_PAGES,
-
+    // FILTER,
+    ORDER,
 } from "../actions-types/actions-types";
 
 const initialState = {
@@ -12,7 +13,9 @@ const initialState = {
     loading: false,
     error: null,
     currentPage: 1,
-    totalPage: 0,
+    totalPages: 0,
+    filtroBy: 'default',
+    ordenBy: 'default',
 }
 
 
@@ -48,6 +51,43 @@ function dogsReducer(state = initialState, action) {
                 ...state,
                 totalPage: action.payload,
             };
+
+
+        case ORDER:
+            let sortedDogs;
+            if (action.payload === 'asc') {
+                sortedDogs = [...state.dogs].sort((a, b) => {
+                    let idA = a.id;
+                    let idB = b.id;
+
+                    //si idA o idB comienzan con una "H", entonces extrae la Letra y conviertelo en numero;
+                    if (idA[0] === 'H') { idA = parseInt(idA.slice(1)) };
+                    if (idB[0] === 'H') { idB = parseInt(idB.slice(1)) };
+
+                    return idA - idB; //orden ascendente
+                });
+
+            } else if (action.payload === 'desc') {
+                sortedDogs = [...state.dogs].sort((a, b) => {
+                    let idA = a.id;
+                    let idB = b.id;
+
+                    if (idA[0] === 'H') { idA = parseInt(idA.slice(1)) };
+                    if (idB[0] === 'H') { idB = parseInt(idB.slice(1)) };
+
+                    return idB - idA; //orden descendente
+                });
+
+            } else {
+                sortedDogs = [...state.dogs]; // orden por default
+            }
+
+            return {
+                ...state,
+                dogs: sortedDogs,
+                ordenBy: action.payload,
+            };
+
         default:
             return state
     }
