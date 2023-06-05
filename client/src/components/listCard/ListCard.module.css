@@ -7,6 +7,11 @@
     justify-items: center;
 }
 
+.listcard> :last-child,
+.listcard> :first-child {
+    grid-column: 1 / -1;
+}
+
 @media(max-width: 767.98px) {
     .listcard {
         grid-template-columns: 1fr 1fr;

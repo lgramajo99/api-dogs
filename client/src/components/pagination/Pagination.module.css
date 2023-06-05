@@ -1,0 +1,12 @@
+.paginado {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+}
+
+.paginado button {
+    font-size: larger;
+    padding: 8px;
+    border-radius: 5px;
+}

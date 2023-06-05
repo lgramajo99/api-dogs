@@ -16,7 +16,6 @@
     transition: transform 0.8s;
     border: 1px solid black;
     border-radius: 10px;
-
 }
 
 .front img {
@@ -28,7 +27,7 @@
 .back ul {
     list-style: none;
     padding: 0;
-    display: flex;
+    display: inline-block;
     justify-content: center;
     column-gap: 5px;
 }
