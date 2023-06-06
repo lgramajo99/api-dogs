@@ -1,7 +1,7 @@
 import { CREATE_DOG_FAILURE, CREATE_DOG_SUCCESS } from "../actions-types/actions-types";
 
 const initialState = {
-    dogs: [],
+    dog: [],
     error: null,
 }
 
@@ -16,7 +16,7 @@ function dogsCreateReducer(state = initialState, action) {
         case CREATE_DOG_SUCCESS:
             return {
                 ...state,
-                dogs: action.payload,
+                dog: action.payload,
                 error: null,
             }
 

@@ -1,4 +1,4 @@
-const { Dog, Temperaments } = require('../db.js');
+const { Dog, Temperament } = require('../db.js');
 const { Op } = require("sequelize");
 
 const createDogCtrl = async (req, res) => {
@@ -6,25 +6,29 @@ const createDogCtrl = async (req, res) => {
     try {
         const newDog = await Dog.create({
             imagen, nombre, altura, peso, añosDeVida
-        })
+        });
 
-        if (temperamentos && temperamentos.length > 0) {
-            const foundTemperaments = await Temperaments.findAll({
+        for (const temperamento of temperamentos) {
+            const temperamentoEncontrado = await Temperament.findOne({
                 where: {
                     nombre: {
-                        [Op.iLike]: temperamentos.map(temp => `%${temp}%`)
+                        [Op.iLike]: temperamento
                     }
                 }
             });
 
-            // Asociar los temperamentos encontrados con la nueva raza de perro
-            await newDog.setTemperaments(foundTemperaments);
+            if (temperamentoEncontrado) {
+                await newDog.addTemperament(temperamentoEncontrado);
+            } else {
+                const nuevoTemperamento = await Temperament.create({ nombre: temperamento });
+                await newDog.addTemperament(nuevoTemperamento);
+            }
         }
 
         return res.status(201).json(newDog);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({ error: `No se pudo crear el animal: ${error.message}` });
     }
-}
+};
 
 module.exports = createDogCtrl;

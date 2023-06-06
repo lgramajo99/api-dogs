@@ -14,7 +14,7 @@ export const createDogSuccess = (dog) => ({
     payload: dog
 })
 
-export const createDog = () => {
+export const createDog = (dog) => {
     return async (dispatch) => {
         try {
 
