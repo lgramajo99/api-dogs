@@ -1,0 +1,21 @@
+.creacion {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    margin: 15px auto;
+    gap: 15px;
+}
+
+.creacion input,
+.creacion button {
+    padding: 5px;
+    font-size: large;
+    border-radius: 8px;
+}
+
+.temperamentos {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+}

@@ -4,7 +4,7 @@ import {
     FETCH_DOGS_SUCCESS,
     CURRENT_PAGE,
     TOTAL_PAGES,
-    // FILTER,
+    FILTER,
     ORDER,
 } from "../actions-types/actions-types";
 
@@ -16,10 +16,12 @@ const initialState = {
     totalPages: 0,
     filtroBy: 'default',
     ordenBy: 'default',
+    apiFilter: []
 }
 
 
 function dogsReducer(state = initialState, action) {
+
     switch (action.type) {
         case FETCH_DOGS_FAILURE:
             return {
@@ -29,7 +31,6 @@ function dogsReducer(state = initialState, action) {
             }
 
         case FETCH_DOGS_REQUEST:
-
             return {
                 ...state,
                 loading: true,
@@ -40,7 +41,9 @@ function dogsReducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 dogs: action.payload,
+                apiFilter: action.payload,
             }
+
         case CURRENT_PAGE:
             return {
                 ...state,
@@ -87,6 +90,18 @@ function dogsReducer(state = initialState, action) {
                 dogs: sortedDogs,
                 ordenBy: action.payload,
             };
+
+        case FILTER:
+            let apidog
+
+            if (action.payload === 'DB') { apidog = [...state.dogs].filter(dog => dog.id[0] === 'H') }
+            if (action.payload === 'API') { apidog = [...state.apiFilter].filter(dog => !isNaN(parseInt(dog.id))) }
+            if (action.payload === 'default') { apidog = [...state.dogs] }
+            return {
+                ...state,
+                dogs: apidog,
+                filtroBy: action.payload
+            }
 
         default:
             return state
