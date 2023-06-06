@@ -22,10 +22,21 @@ const dogsIdCtrl = async (req, res) => {
             const response = await axios.get('https://api.thedogapi.com/v1/breeds')
             const dogApi = response.data.filter(el => el.id == id);
 
+            const apiDog = {
+                id: dogApi[0].id,
+                nombre: dogApi[0].name,
+                imagen: dogApi[0].image?.url,
+                altura: dogApi[0]?.height?.imperial,
+                peso: dogApi[0]?.weight?.imperial,
+                añosDeVida: dogApi[0]?.life_span,
+                temperamentos: dogApi[0]?.temperament
+            }
+
             if (!dogApi.length) {
                 throw new Error(`No se puedo encontrar la raza con el id: ${id}`)
             }
-            dogDB = dogApi
+
+            dogDB = apiDog;
         }
 
         return res.status(200).json(dogDB);

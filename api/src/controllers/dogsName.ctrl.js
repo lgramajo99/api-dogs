@@ -22,6 +22,8 @@ const dogsNameCtrl = async (req, res) => {
 
         const dogsDB = await Dog.findAll(responseDB);
 
+        // ---------------------------------------------------
+
         const responseApi = await axios.get('https://api.thedogapi.com/v1/breeds');
         const resp = responseApi.data.filter(el => el.name.toLowerCase().includes(nombre.toLowerCase()))
 
