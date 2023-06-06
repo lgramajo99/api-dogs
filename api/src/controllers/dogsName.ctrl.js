@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { Dog } = require('../db.js');
+const { Dog, Temperament } = require('../db.js');
 const { Op } = require('sequelize');
 
 
@@ -12,9 +12,15 @@ const dogsNameCtrl = async (req, res) => {
                 nombre: {
                     [Op.iLike]: `%${nombre}%`
                 }
-            }
-        }
-        const dogsDB = await Dog.findAll(responseDB)
+            },
+            include: [{
+                model: Temperament,
+                attributes: ['nombre'],
+                through: { attributes: [] }
+            }]
+        };
+
+        const dogsDB = await Dog.findAll(responseDB);
 
         const responseApi = await axios.get('https://api.thedogapi.com/v1/breeds');
         const resp = responseApi.data.filter(el => el.name.toLowerCase().includes(nombre.toLowerCase()))

@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { Dog } = require('../db.js');
+const { Dog, Temperament } = require('../db.js');
 const { Op } = require('sequelize');
 
 const dogsIdCtrl = async (req, res) => {
@@ -10,7 +10,12 @@ const dogsIdCtrl = async (req, res) => {
                 id: {
                     [Op.iLike]: id
                 }
-            }
+            },
+            include: [{
+                model: Temperament,
+                attributes: ['nombre'], // Incluir solo el atributo 'nombre' del modelo Temperament
+                through: { attributes: [] } // Evitar incluir atributos adicionales de la tabla intermedia
+            }]
         })
 
         if (!dogDB) {
