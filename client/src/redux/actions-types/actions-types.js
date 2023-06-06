@@ -18,4 +18,8 @@ export const FETCH_DOGS_ID_SUCCESS = 'FETCH_DOGS_ID_SUCCESS';
 //Actions-types para traer los dogs por NOMBRE. 
 export const FETCH_DOGS_NAME_FAILURE = 'FETCH_DOGS_NAME_FAILURE';
 export const FETCH_DOGS_NAME_REQUEST = 'FETCH_DOGS_NAME_REQUEST';
-export const FETCH_DOGS_NAME_SUCCESS = 'FETCH_DOGS_NAME_SUCCESS'; 
+export const FETCH_DOGS_NAME_SUCCESS = 'FETCH_DOGS_NAME_SUCCESS';
+
+//Actionss-types para crear los dogs.
+export const CREATE_DOG_SUCCESS = 'CREATE_DOG_SUCCESS';
+export const CREATE_DOG_FAILURE = 'CREATE_DOG_FAILURE';
