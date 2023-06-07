@@ -17,6 +17,7 @@ function ListCard() {
 
     if (loading) { return (<h1>CARGANDO...</h1>) }
     if (error) { return (<h1>ERROR: {error.message}</h1>) }
+
     return (
         <section className={styles.listcard} >
             <div className={styles.barras}>
@@ -24,8 +25,14 @@ function ListCard() {
                 <Filter />
             </div>
 
-            {dogs?.map(({ id, nombre, imagen, peso }) =>
-                <FirstCard key={id} id={id} nombre={nombre} imagen={imagen} peso={peso} />
+            {dogs?.map(({ id, nombre, imagen, peso, temperaments }) =>
+                <FirstCard
+                    key={id}
+                    id={id}
+                    nombre={nombre}
+                    imagen={imagen}
+                    peso={peso}
+                    temperaments={temperaments} />
             )}
 
             <Pagination />

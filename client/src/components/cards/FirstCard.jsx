@@ -1,7 +1,7 @@
 import styles from './Card.module.css';
 import { useNavigate } from 'react-router-dom'
 
-function FirstCard({ id, nombre, imagen, peso }) {
+function FirstCard({ id, nombre, imagen, peso, temperaments }) {
     const navigate = useNavigate()
 
     const goToDetail = () => { navigate(`/detalle/${id}`) }
@@ -14,13 +14,13 @@ function FirstCard({ id, nombre, imagen, peso }) {
             <div className={styles.back}>
                 <h2>{nombre}</h2>
                 <ul>
-                    <li>alegre</li>
-                    <li>cariñoso</li>
-                    <li>jugeueton</li>
+                    {temperaments.slice(0, 3).map((temperament, index) => (
+                        <li key={index}>{temperament.nombre}</li>
+                    ))}
                 </ul>
                 <p>peso aprox: {peso} </p>
             </div>
-        </section>
+        </section >
     )
 }
 
