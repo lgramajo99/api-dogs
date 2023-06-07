@@ -4,8 +4,8 @@ import Footer from './components/footer/Footer.jsx';
 import Inicio from './components/inicio/Inicio';
 import { Route, Routes } from 'react-router-dom';
 import Detalles from './components/detalles/Detalles';
-import SearchBar from './components/searchbar/SearchBar';
 import CreateDog from './components/createDog/CreateDog';
+import ErrorPage from './components/errors/ErrorPage';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path='/detalle/:idRaza' element={<Detalles />} />
         <Route path='/administracion' element={<CreateDog />} />
 
-        <Route path='/' element={<SearchBar />} />
+        <Route path='/' element={<ErrorPage />} />
       </Routes>
       <Footer />
     </div>

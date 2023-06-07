@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Pagination from '../pagination/Pagination';
 import Order from '../order/Order';
 import Filter from '../filter/Filter';
+import Loading from '../loading/Loading';
 
 function ListCard() {
     const dispatch = useDispatch();
@@ -15,7 +16,7 @@ function ListCard() {
         dispatch(fetchDogs())
     }, [dispatch])
 
-    if (loading) { return (<h1>CARGANDO...</h1>) }
+    if (loading) { return (<Loading />) }
     if (error) { return (<h1>ERROR: {error.message}</h1>) }
 
     return (

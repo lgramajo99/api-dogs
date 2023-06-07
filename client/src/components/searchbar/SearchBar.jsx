@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDogsName } from '../../redux/actions/dogsName.action';
 import styles from './SearchBar.module.css';
+import Loading from '../loading/Loading';
 
 function SearchBar() {
     const [searchText, setSearchText] = useState('');
@@ -33,9 +34,9 @@ function SearchBar() {
             </form>
 
             <ul className={styles.lista}>
-                {loading ? (<li>Cargando...</li>)
+                {loading ? (<li><Loading /></li>)
                     : error ? (<li>Error: {error.message}</li>)
-                        : (dogsName?.map(({ id, nombre }) => <li key={id}><Link to={`/detalle/${id}`}>{nombre}</Link></li>) )}
+                        : (dogsName?.map(({ id, nombre }) => <li key={id}><Link to={`/detalle/${id}`}>{nombre}</Link></li>))}
             </ul>
         </div>
     );

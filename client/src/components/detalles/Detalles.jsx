@@ -3,18 +3,19 @@ import styles from './Detalles.module.css';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDogId } from '../../redux/actions/dogsId.action';
+import Loading from '../loading/Loading';
 
 function Detalles() {
     const { idRaza } = useParams();
     const dispatch = useDispatch();
     const { dog, loading, error } = useSelector(state => state.dogIdReducer);
-    const { id, nombre, imagen, altura, peso, añosDeVida, temperaments, temperamentos } = dog
+    const { nombre, imagen, altura, peso, añosDeVida, temperaments, temperamentos } = dog
 
     useEffect(() => {
         dispatch(fetchDogId(idRaza))
     }, [dispatch, idRaza])
 
-    if (loading) { return (<h1>Cargando...</h1>) }
+    if (loading) { return (<Loading />) }
     if (error) { return (<h1>Error:</h1>) }
 
     console.log(dog)
