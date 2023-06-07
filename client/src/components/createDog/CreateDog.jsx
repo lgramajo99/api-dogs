@@ -5,8 +5,6 @@ import { createDog } from '../../redux/actions/dogsCreate.action';
 
 function CreateDog() {
     const dispatch = useDispatch();
-    // const { dog, error } = useSelector(state => state.dogsCreateReducer);
-
     const [countTemperaments, setCountTemperaments] = useState(1);
     const [createDogs, setCreateDogs] = useState({
         nombre: '',
@@ -16,6 +14,52 @@ function CreateDog() {
         añosDeVida: '',
         temperamentos: []
     });
+    const [error, setError] = useState({
+        nombre: '',
+        imagen: '',
+        peso: '',
+        altura: '',
+        añosDeVida: '',
+        temperamentos: []
+    });
+
+    const validateForm = () => {
+        const errors = {};
+        if (createDogs.nombre.length === 0 || createDogs.imagen.length === 0 ||
+            createDogs.peso.length === 0 || createDogs.altura.length === 0 ||
+            createDogs.añosDeVida.length === 0) {
+
+            errors.nombre = createDogs.nombre.length === 0 ? 'El nombre es obligatorio' : '';
+            errors.imagen = createDogs.imagen.length === 0 ? 'La URL de la imagen es obligatoria' : '';
+            errors.peso = createDogs.peso.length === 0 ? 'El peso es obligatorio' : '';
+            errors.altura = createDogs.altura.length === 0 ? 'La altura es obligatoria' : '';
+            errors.añosDeVida = createDogs.añosDeVida.length === 0 ? 'La espeanza de vida es obligatoria' : '';
+        }
+
+        if (createDogs.nombre.length < 3) {
+            errors.nombre = 'El nombre debe tener al menos 3 caracteres';
+        }
+
+        if (createDogs.imagen && !/\.(png|jpg)$/.test(createDogs.imagen)) {
+            errors.imagen = 'La URL de la imagen debe ser un archivo PNG o JPG';
+        }
+
+        if (createDogs.peso && !/^[0-9_-]+$/.test(createDogs.peso)) {
+            errors.peso = 'El peso debe contener solo números, "-" y "_"';
+        }
+
+        if (createDogs.altura && !/^[0-9_-]+$/.test(createDogs.altura)) {
+            errors.altura = 'La altura debe contener solo números, "-" y "_"';
+        }
+
+        if (createDogs.añosDeVida && !/^[0-9_-]+$/.test(createDogs.añosDeVida)) {
+            errors.añosDeVida = 'La años debe contener solo números, "-" y "_"';
+        }
+
+        setError(errors);
+
+        return Object.keys(errors).length === 0;
+    };
 
     const renderInputs = () => {
         const inputs = [];
@@ -50,18 +94,21 @@ function CreateDog() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(createDogs);
-        dispatch(createDog(createDogs));
 
-        setCreateDogs({
-            nombre: '',
-            imagen: '',
-            peso: '',
-            altura: '',
-            añosDeVida: '',
-            temperamentos: []
-        });
-        setCountTemperaments(1);
+        if (validateForm()) {
+            console.log(createDogs);
+            dispatch(createDog(createDogs));
+
+            setCreateDogs({
+                nombre: '',
+                imagen: '',
+                peso: '',
+                altura: '',
+                añosDeVida: '',
+                temperamentos: []
+            });
+            setCountTemperaments(1);
+        }
     };
 
     return (
@@ -72,13 +119,15 @@ function CreateDog() {
                 onChange={(e) => setCreateDogs({ ...createDogs, nombre: e.target.value })}
                 placeholder='Nombre / raza'
             />
+            {error.nombre && <p className={styles.error}>{error.nombre}</p>}
 
             <input
                 type="url"
                 value={createDogs.imagen}
                 onChange={(e) => setCreateDogs({ ...createDogs, imagen: e.target.value })}
-                placeholder='Imagen del animal '
+                placeholder='Imagen del animal'
             />
+            {error.imagen && <p className={styles.error}>{error.imagen}</p>}
 
             <input
                 type="text"
@@ -86,6 +135,7 @@ function CreateDog() {
                 onChange={(e) => setCreateDogs({ ...createDogs, peso: e.target.value })}
                 placeholder='Peso ej: (12 - 15)'
             />
+            {error.peso && <p className={styles.error}>{error.peso}</p>}
 
             <input
                 type="text"
@@ -93,6 +143,7 @@ function CreateDog() {
                 onChange={(e) => setCreateDogs({ ...createDogs, altura: e.target.value })}
                 placeholder='Altura ej: (7 - 10)'
             />
+            {error.altura && <p className={styles.error}>{error.altura}</p>}
 
             <input
                 type="text"
@@ -100,6 +151,7 @@ function CreateDog() {
                 onChange={(e) => setCreateDogs({ ...createDogs, añosDeVida: e.target.value })}
                 placeholder='Esperanza de vida.'
             />
+            {error.añosDeVida && <p className={styles.error}>{error.añosDeVida}</p>}
 
             {renderInputs()}
 
