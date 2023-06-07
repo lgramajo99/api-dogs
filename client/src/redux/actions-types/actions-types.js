@@ -1,5 +1,6 @@
 // Actions-types de otros.
 export const BUTTON_HAMBURGER = 'BUTTON_HAMBURGER';
+export const SECTION_ADMIN = 'SECTION_ADMIN';
 
 //Actions-types para traer todos los dogs.
 export const FETCH_DOGS_REQUEST = 'FETCH_DOGS_REQUEST';

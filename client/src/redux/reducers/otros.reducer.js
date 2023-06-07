@@ -1,7 +1,8 @@
-import { BUTTON_HAMBURGER } from "../actions-types/actions-types";
+import { BUTTON_HAMBURGER, SECTION_ADMIN } from "../actions-types/actions-types";
 
 const initialState = {
     isOpenHamburger: false,
+    isAdmin: false,
 }
 
 function otrosReducer(state = initialState, action) {
@@ -11,7 +12,11 @@ function otrosReducer(state = initialState, action) {
                 ...state,
                 isOpenHamburger: action.payload,
             }
-
+        case SECTION_ADMIN:
+            return {
+                ...state,
+                isAdmin: action.payload,
+            }
 
         default: return state;
     }

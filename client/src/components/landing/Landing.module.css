@@ -1,0 +1,36 @@
+.landingpage {
+    background-image: url(https://imgur.com/zYKsEwE.png), url(https://imgur.com/gnlo80G.png), url(https://imgur.com/bWkiXvK.png);
+    background-repeat: repeat;
+    background-position: left, center, right;
+    background-size: 50px 50px;
+    padding: 25px;
+}
+
+.secciones {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 25rem;
+    margin: auto;
+    background-color: rgb(132, 198, 255);
+    padding: 10px;
+    border-radius: 15px;
+    align-items: center;
+
+}
+
+.secciones button,
+.secciones form input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    font-size: large;
+    font-weight: 600;
+}
+
+.secciones form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}

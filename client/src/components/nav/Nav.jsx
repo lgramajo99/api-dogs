@@ -6,7 +6,7 @@ import SearchBar from '../searchbar/SearchBar.jsx';
 
 
 function Nav() {
-    const { isOpenHamburger } = useSelector(state => state.otrosReducer);
+    const { isOpenHamburger, isAdmin } = useSelector(state => state.otrosReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
@@ -26,7 +26,7 @@ function Nav() {
                 <li><SearchBar /></li>
                 <li><Link to={'/inicio'}>Inicio</Link></li>
                 <li><Link to={'/sobre-nosotros'}>Sobre nosotros</Link></li>
-                <li><Link to={'/administracion'}>⚙</Link></li>
+                {isAdmin && < li > <Link to={'/administracion'}>⚙</Link></li>}
             </ul>
         </div>
     </nav >)
