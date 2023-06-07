@@ -3,17 +3,17 @@
     background-repeat: repeat;
     background-position: left, center, right;
     background-size: 50px 50px;
-    padding: 25px;
+    padding: 4rem;
 }
 
 .secciones {
     display: flex;
     flex-direction: column;
     width: 70%;
-    height: 25rem;
+    height: 35rem;
     margin: auto;
     background-color: rgb(132, 198, 255);
-    padding: 10px;
+    padding: 30px;
     border-radius: 15px;
     align-items: center;
 
