@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchDogId } from '../../redux/actions/dogsId.action';
 import Loading from '../loading/Loading';
 
+
 function Detalles() {
     const { idRaza } = useParams();
     const dispatch = useDispatch();
