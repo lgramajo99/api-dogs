@@ -8,7 +8,7 @@ function Detalles() {
     const { idRaza } = useParams();
     const dispatch = useDispatch();
     const { dog, loading, error } = useSelector(state => state.dogIdReducer);
-    const { nombre, imagen, altura, peso, añosDeVida } = dog
+    const { id, nombre, imagen, altura, peso, añosDeVida, temperaments, temperamentos } = dog
 
     useEffect(() => {
         dispatch(fetchDogId(idRaza))
@@ -16,7 +16,8 @@ function Detalles() {
 
     if (loading) { return (<h1>Cargando...</h1>) }
     if (error) { return (<h1>Error:</h1>) }
-    // console.log(dog)
+
+    console.log(dog)
 
     return (
         <section className={styles.detalles}>
@@ -32,10 +33,12 @@ function Detalles() {
             <h4>Temperamentos</h4>
 
             <ul>
-                <li>temperametos #1</li>
-                <li>temperametos #2</li>
-                <li>temperametos #3</li>
-                <li>temperametos #4</li>
+                {Array.isArray(temperaments)
+                    ? temperaments.map((temperament, index) => (
+                        <li key={index}>{temperament.nombre}</li>
+                    ))
+                    : <li>{temperamentos}</li>
+                }
             </ul>
 
         </section>
