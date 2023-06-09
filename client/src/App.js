@@ -10,9 +10,6 @@ import Landing from './components/landing/Landing';
 
 function App() {
   const location = useLocation()
-  console.log('buenas tardes')
-
-
   return (
     <div className="App">
 
