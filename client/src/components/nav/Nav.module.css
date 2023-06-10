@@ -28,18 +28,20 @@
 
 .menu {
     list-style: none;
-    margin: 0;
+    margin: 0 5px;
     display: flex;
     padding: 0 15px;
     text-align: end;
+    border: 1px red solid;
 }
 
 .menuOff {
     list-style: none;
-    margin: 0;
+    margin: 0 5px;
     display: flex;
     padding: 0 15px;
     text-align: end;
+    border: 1px red solid;
 }
 
 
