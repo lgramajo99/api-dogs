@@ -36,3 +36,22 @@ export const validateForm = (formData) => {
 
 
 };
+
+
+export const validateLogin = (userData) => {
+    const errors = {};
+
+    if (userData.userName.trim().length === 0) {
+        errors.userName = 'El usuario es obligatorio';
+    }
+
+    if (userData.password.trim().length === 0) {
+        errors.password = 'La contraseña es obligatoria';
+    }
+
+    if (userData.userName !== 'lgramajo' || userData.password !== '123asd') {
+        errors.credentials = 'Credenciales inválidas';
+    }
+
+    return errors;
+};
