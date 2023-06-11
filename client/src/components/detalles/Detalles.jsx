@@ -17,9 +17,7 @@ function Detalles() {
     }, [dispatch, idRaza])
 
     if (loading) { return (<Loading />) }
-    if (error) { return (<h1>Error:</h1>) }
-
-    console.log(dog)
+    if (error) { return (<h1>Error: {error.message}</h1>) }
 
     return (
         <section className={styles.detalles}>

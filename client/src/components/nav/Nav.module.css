@@ -32,7 +32,6 @@
     display: flex;
     padding: 0 15px;
     text-align: end;
-    border: 1px red solid;
 }
 
 .menuOff {
@@ -41,7 +40,6 @@
     display: flex;
     padding: 0 15px;
     text-align: end;
-    border: 1px red solid;
 }
 
 
