@@ -38,18 +38,21 @@ export const validateForm = (formData) => {
 };
 
 
-export const validateLogin = (userData) => {
+export const validateLogin = (userData, data) => {
     const errors = {};
 
-    if (userData.userName.trim().length === 0) {
-        errors.userName = 'El usuario es obligatorio';
+    const usernames = data.map(user => user.username);
+    const passwords = data.map(user => user.password);
+
+    if (userData.username.trim().length === 0) {
+        errors.username = 'El usuario es obligatorio';
     }
 
     if (userData.password.trim().length === 0) {
         errors.password = 'La contraseña es obligatoria';
     }
 
-    if (userData.userName !== 'lgramajo' || userData.password !== '123asd') {
+    if (!usernames.includes(userData.username) || !passwords.includes(userData.password)) {
         errors.credentials = 'Credenciales inválidas';
     }
 

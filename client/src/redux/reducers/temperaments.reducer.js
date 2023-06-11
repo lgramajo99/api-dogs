@@ -1,4 +1,6 @@
-import { FETCH_TEMPERAMENTS_FAILURE, FETCH_TEMPERAMENTS_REQUEST, FETCH_TEMPERAMENTS_SUCCESS } from '../actions-types/actions-types'
+import {
+    FETCH_TEMPERAMENTS_FAILURE, FETCH_TEMPERAMENTS_REQUEST, FETCH_TEMPERAMENTS_SUCCESS
+} from '../actions-types/actions-types'
 
 const initialState = {
     temperamentos: [],

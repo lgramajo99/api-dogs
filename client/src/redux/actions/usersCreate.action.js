@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { CREATE_USER_FAILURE, CREATE_USER_SUCCESS } from '../actions-types/actions-types';
+import {
+    CREATE_USER_FAILURE, CREATE_USER_SUCCESS
+} from '../actions-types/actions-types';
 
 export const createUserFailure = (error) => {
     return {

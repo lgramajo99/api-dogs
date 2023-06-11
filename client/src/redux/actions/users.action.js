@@ -27,9 +27,9 @@ export function fetchUsers() {
     return async (dispatch) => {
         dispatch(fetchUserRequest())
         try {
-            const data = axios.get('http://localhost:3001/usuario');
-            dispatch(fetchUserSuccess(data))
-            
+            const response = await axios.get('http://localhost:3001/usuario');
+            dispatch(fetchUserSuccess(response.data))
+
         } catch (error) {
             dispatch(fetchUserFailure(error.message))
         }

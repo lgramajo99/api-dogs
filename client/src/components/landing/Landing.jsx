@@ -2,15 +2,23 @@ import styles from './Landing.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { sectionAdmin } from '../../redux/actions/otros.action';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { validateLogin } from '../createDog/validations';
+import { fetchUsers } from '../../redux/actions/users.action'
+
 
 function Landing() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [users, setUsers] = useState({ userName: '', password: '' });
-    const [error, setError] = useState({ userName: '', password: '', credentials: '' });
+    const [users, setUsers] = useState({ username: '', password: '' });
+    const [error, setError] = useState({ username: '', password: '', credentials: '' });
     const { isAdmin } = useSelector((state) => state.otrosReducer);
+    const { data } = useSelector(state => state.userReducer)
+
+    useEffect(() => {
+        dispatch(fetchUsers())
+    }, [])
+
 
     const enterAsGuest = () => {
         navigate('/inicio');
@@ -22,10 +30,11 @@ function Landing() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const errors = validateLogin(users);
+        const errors = validateLogin(users, data);
 
         if (Object.keys(errors).length === 0) {
             navigate('/inicio');
+            console.log('Registrado')
         } else {
             setError(errors);
         }
@@ -57,10 +66,10 @@ function Landing() {
                         <input
                             type="text"
                             placeholder="Usuario del administrador"
-                            value={users.userName}
-                            name='userName'
+                            value={users.username}
+                            name='username'
                             onChange={handleChange} />
-                        {error.userName && <span className={styles.error}>{error.userName}</span>}
+                        {error.username && <span className={styles.error}>{error.username}</span>}
 
                         <input
                             type="password"

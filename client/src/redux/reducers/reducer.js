@@ -5,8 +5,8 @@ import dogIdReducer from './dogsId.reducer';
 import dogsNameReducer from './dogsName.reducer';
 import dogsCreateReducer from './dogsCreate.reducer';
 import temperamentsReducer from './temperaments.reducer'
-import userReducer from './users.action';
-
+import userReducer from './users.reducer';
+import userCreateReducer from './usersCreate.reducer'
 
 const rootReducer = combineReducers({
     otrosReducer,
@@ -16,6 +16,7 @@ const rootReducer = combineReducers({
     dogsCreateReducer,
     temperamentsReducer,
     userReducer,
+    userCreateReducer
 })
 
 export default rootReducer;
