@@ -62,6 +62,7 @@ function CreateDog() {
         if (Object.keys(errors).length === 0) {
             console.log(createDogs);
             dispatch(createDog(createDogs));
+            alert(`${createDogs.nombre} fue creado con exito.`)
 
             setCreateDogs({
                 nombre: '',
@@ -72,7 +73,6 @@ function CreateDog() {
                 temperamentos: []
             });
             setCountTemperaments(1);
-
         } else { setError(errors); }
     };
 

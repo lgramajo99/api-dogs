@@ -1,11 +1,12 @@
 import {
-    FETCH_TEMPERAMENTS_FAILURE, FETCH_TEMPERAMENTS_REQUEST, FETCH_TEMPERAMENTS_SUCCESS
+    FETCH_TEMPERAMENTS_FAILURE, FETCH_TEMPERAMENTS_REQUEST, FETCH_TEMPERAMENTS_SUCCESS, SEASONS
 } from '../actions-types/actions-types'
 
 const initialState = {
     temperamentos: [],
     loading: false,
-    error: null
+    error: null,
+    season: ''
 }
 
 function temperamentsReducer(state = initialState, action) {
@@ -26,6 +27,11 @@ function temperamentsReducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 temperamentos: action.payload,
+            }
+        case SEASONS:
+            return {
+                ...state,
+                season: action.payload,
             }
         default:
             return state

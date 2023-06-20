@@ -14,7 +14,7 @@ function Aside() {
 
     return (
         <ul className={styles.listaTemp}>
-            <h3>Lista de los temperamentos mas comunes en los perros.</h3>
+            <h3>Lista de los 25 temperamentos mas comunes en los perros en verano.</h3>
 
             {loading ? <Loading />
                 : (temperamentos.map(({ nombre }, index) => (<li key={index}>{nombre}</li>)))}
