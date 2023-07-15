@@ -1,8 +1,8 @@
 .landingpage {
-    background-image: url(https://imgur.com/zYKsEwE.png), url(https://imgur.com/gnlo80G.png), url(https://imgur.com/bWkiXvK.png);
+    /* background-image: url(https://imgur.com/zYKsEwE.png), url(https://imgur.com/gnlo80G.png), url(https://imgur.com/bWkiXvK.png);
     background-repeat: repeat;
     background-position: left, center, right;
-    background-size: 50px 50px;
+    background-size: 50px 50px; */
     padding: 4rem;
 }
 
@@ -12,25 +12,38 @@
     width: 70%;
     height: 35rem;
     margin: auto;
-    background-color: rgb(132, 198, 255);
+    background-color: rgba(52, 153, 247, 0.6);
     padding: 30px;
     border-radius: 15px;
     align-items: center;
-
+    justify-content: center;
+    font-weight: 700;
 }
 
-.secciones button,
+
 .secciones form input {
-    padding: 10px;
-    margin: 10px;
     border-radius: 8px;
     font-size: large;
     font-weight: 600;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
 }
 
-.secciones form {
+.secciones button {
+    border-radius: 8px;
+    font-size: large;
+    font-weight: 600;
+    width: auto;
+    cursor: pointer;
+    margin: 10px 5px;
+    padding: 10px 20px;
+}
+
+.secciones .formulario {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: auto;
+    width: 100%;
 }

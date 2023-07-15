@@ -21,7 +21,7 @@ function Nav() {
         <h1 className={styles.logo} onClick={goHome}>PI-Dogs</h1>
 
         <div className={styles.hamburger}>
-            <button onClick={handlerHamburger}>{isOpenHamburger ? "❤" : "💕"}</button>
+            <button onClick={handlerHamburger}>{isOpenHamburger ? "|||" : "X"}</button>
             <ul className={`${isOpenHamburger ? styles.menuOff : styles.menu} `}>
                 <li><SearchBar /></li>
                 <li><Link to={'/inicio'}>Inicio</Link></li>

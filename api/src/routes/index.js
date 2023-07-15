@@ -6,6 +6,8 @@ const dogsIdCtrl = require('../controllers/dogsId.ctrll');
 const dogsNameCtrl = require('../controllers/dogsName.ctrl');
 const createDogCtrl = require('../controllers/dogsCreate.ctrl');
 const temperamentsCtrl = require('../controllers/Temperaments.ctrl');
+const usersCtrl = require('../controllers/users.ctrl');
+const createUserCtrl = require('../controllers/createUser.ctrl')
 
 const router = Router();
 
@@ -17,5 +19,9 @@ router.get('/dogs/:idRaza', dogsIdCtrl);
 router.post('/dogs', createDogCtrl);
 
 router.get('/temperaments', temperamentsCtrl);
+
+router.get('/usuario', usersCtrl);
+router.post('/usuario', createUserCtrl);
+
 
 module.exports = router;

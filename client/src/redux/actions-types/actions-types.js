@@ -24,3 +24,21 @@ export const FETCH_DOGS_NAME_SUCCESS = 'FETCH_DOGS_NAME_SUCCESS';
 //Actionss-types para crear los dogs.
 export const CREATE_DOG_SUCCESS = 'CREATE_DOG_SUCCESS';
 export const CREATE_DOG_FAILURE = 'CREATE_DOG_FAILURE';
+
+
+// Actions-types para traer temperamentos;
+export const FETCH_TEMPERAMENTS_FAILURE = 'FETCH_TEMPERAMENTS_FAILURE';
+export const FETCH_TEMPERAMENTS_REQUEST = 'FETCH_TEMPERAMENTS_REQUEST';
+export const FETCH_TEMPERAMENTS_SUCCESS = 'FETCH_TEMPERAMENTS_SUCCESS';
+
+export const SEASONS = 'SEASONS'
+
+
+// Actions-types para traer a los usuarios;
+export const FETCH_USERS_FAILURE = 'FETCH_USERS_FAILURE';
+export const FETCH_USERS_REQUEST = 'FETCH_USERS_REQUEST';
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
+
+// Actions-types para crear a los usuarios;
+export const CREATE_USER_FAILURE = 'CREATE_USER_FAILURE';
+export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';
